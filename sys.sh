@@ -30,7 +30,7 @@ echo "..........................................................................
 echo "................................................................................"
 read -r choix
 case $choix in 
-	#liste de tout les users
+	#liste de tout les utilisateurs
 	'a') cut -d : -f 1 /etc/passwd>all_users
 	
 	#liste des repertoires se trouvant dans /home 
@@ -61,7 +61,7 @@ case $choix in
 	
  ;;
 	'b') echo "tellechagement  de xampp"
-	 wget https://downloadsapachefriends.global.ssl.fastly.net/xampp-files/5.6.30/xampp-linux-x64-5.6.30-1-installer.run?from_af=true
+	 wget https://downloadsapachefriends.global.ssl.fastly.net/xampp-files/5.6.30/xampp-linux-x64-5.6.30-1-installer.run
 	 echo " insatllation "
 	 ./xampp-linux-x64-5.6.30-1-installer.run
 	
@@ -77,8 +77,10 @@ case $choix in
 ;;
 	'c') echo "archivage"
 	#archivage des fichier du rep home modifier par le sudoer il ya 2 jours
+	#ushi-deshi est le mon d'utilisateur courant
 	mkdir -p /home/ushi-deshi/archive
 	find /home/ushi-deshi/ -type f -mtime 2 -print>/home/ushi-deshi/ficmodi
+	#lecture dans le fichier
 	while read line
 	do
 	cp $line archive
